@@ -17,12 +17,16 @@ export default function NoteDetailsClient() {
       <div className={css.item}>
         {isLoading && <p>Loading, please wait...</p>}
         {error && <p>Something went wrong.</p>}
-        <div className={css.header}>
-          <h2>Note title</h2>
-        </div>
-        <p className={css.tag}>{data?.tag}</p>
-        <p className={css.content}>{data?.content}</p>
-        <p className={css.date}>{data?.createdAt}</p>
+        {data && (
+          <>
+            <div className={css.header}>
+              <h2>{data.title}</h2>
+            </div>
+            <p className={css.tag}>{data.tag}</p>
+            <p className={css.content}>{data.content}</p>
+            <p className={css.date}>{data.createdAt}</p>
+          </>
+        )}
       </div>
     </div>
   );
